@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Results | A'laa</title>
+
+    <!-- Bootstrap -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <nav class="navbar">
+
+        <div class="container">
+
+            <a class="navbar-brand" href="#">
+
+                <i class="bi bi-mortarboard-fill"></i>
+
+                Student Results
+
+            </a>
+
+            <span class="navbar-text">
+
+                Management System
+
+            </span>
+
+        </div>
+
+    </nav>
+
+    <!-- Main Content -->
+
+    <main class="container py-5">
+
+        <!-- Page Header -->
+
+        <section class="page-header mb-4">
+
+            <p class="welcome-text">Welcome Back ♡</p>
+
+            <h1>إدارة نتائج الطلاب</h1>
+
+            <p class="subtitle">
+
+                أضيفي بيانات الطلاب وتابعي نتائجهم بسهولة.
+
+            </p>
+
+        </section>
+
+        <!-- Add Student Section -->
+
+        <section class="dashboard-card mb-4">
+
+            <div class="section-title">
+
+                <div class="icon-box">
+
+                    <i class="bi bi-person-plus-fill"></i>
+
+                </div>
+
+                <div>
+
+                    <h2>إضافة طالب جديد</h2>
+
+                    <p>أدخلي بيانات الطالب ودرجاته</p>
+
+                </div>
+
+            </div>
+
+            <form id="studentForm">
+
+                <div class="row g-3">
+
+                    <!-- Student Name -->
+
+                    <div class="col-12">
+
+                        <label for="studentName" class="form-label">
+
+                            اسم الطالب
+
+                        </label>
+
+                        <input
+
+                            type="text"
+
+                            class="form-control"
+
+                            id="studentName"
+
+                            placeholder="اكتبي اسم الطالب"
+
+                        >
+
+                    </div>
+
+                    <!-- Subject 1 -->
+
+                    <div class="col-md-4">
+
+                        <label for="grade1" class="form-label">
+
+                            المادة الأولى
+
+                        </label>
+
+                        <input
+
+                            type="number"
+
+                            class="form-control"
+
+                            id="grade1"
+
+                            placeholder="من 0 إلى 100"
+
+                            min="0"
+
+                            max="100"
+
+                        >
+
+                    </div>
+
+                    <!-- Subject 2 -->
+
+                    <div class="col-md-4">
+
+                        <label for="grade2" class="form-label">
+
+                            المادة الثانية
+
+                        </label>
+
+                        <input
+
+                            type="number"
+
+                            class="form-control"
+
+                            id="grade2"
+
+                            placeholder="من 0 إلى 100"
+
+                            min="0"
+
+                            max="100"
+
+                        >
+
+                    </div>
+
+                    <!-- Subject 3 -->
+
+                    <div class="col-md-4">
+
+                        <label for="grade3" class="form-label">
+
+                            المادة الثالثة
+
+                        </label>
+
+                        <input
+
+                            type="number"
+
+                            class="form-control"
+
+                            id="grade3"
+
+                            placeholder="من 0 إلى 100"
+
+                            min="0"
+
+                            max="100"
+
+                        >
+
+                    </div>
+
+                    <!-- Attendance -->
+
+                    <div class="col-12">
+
+                        <label for="attendance" class="form-label">
+
+                            نسبة الحضور %
+
+                        </label>
+
+                        <input
+
+                            type="number"
+
+                            class="form-control"
+
+                            id="attendance"
+
+                            placeholder="مثال: 90"
+
+                            min="0"
+
+                            max="100"
+
+                        >
+
+                    </div>
+
+                    <!-- Error Message -->
+
+                    <div class="col-12">
+
+                        <div
+
+                            id="errorMessage"
+
+                            class="alert alert-danger d-none"
+
+                            role="alert"
+
+                        ></div>
+
+                    </div>
+
+                    <!-- Add Button -->
+
+                    <div class="col-12">
+
+                        <button
+
+                            type="button"
+
+                            id="addStudentBtn"
+
+                            class="btn main-btn w-100"
+
+                        >
+
+                            <i class="bi bi-plus-circle me-2"></i>
+
+                            إضافة طالب
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </section>
+
+        <!-- Students List -->
+
+        <section class="dashboard-card mb-4">
+
+            <div class="section-title">
+
+                <div class="icon-box">
+
+                    <i class="bi bi-people-fill"></i>
+
+                </div>
+
+                <div>
+
+                    <h2>قائمة الطلاب</h2>
+
+                    <p>الطلاب الذين تم تسجيلهم</p>
+
+                </div>
+
+            </div>
+
+            <div class="table-responsive">
+
+                <table class="table align-middle text-center">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>#</th>
+
+                            <th>اسم الطالب</th>
+
+                            <th>المادة 1</th>
+
+                            <th>المادة 2</th>
+
+                            <th>المادة 3</th>
+
+                            <th>المتوسط</th>
+
+                            <th>الحضور</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="studentsList">
+
+                        <tr>
+
+                            <td colspan="7" class="empty-state">
+
+                                لم تتم إضافة أي طلاب حتى الآن.
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+        <!-- Mercy Committee -->
+
+        <section class="dashboard-card mercy-card">
+
+            <div class="section-title">
+
+                <div class="icon-box">
+
+                    <i class="bi bi-award-fill"></i>
+
+                </div>
+
+                <div>
+
+                    <h2>لجنة الرأفة</h2>
+
+                    <p>معالجة نتائج الطلاب المتعثرين</p>
+
+                </div>
+
+            </div>
+
+            <button
+
+                type="button"
+
+                id="mercyBtn"
+
+                class="btn mercy-btn w-100 mb-4"
+
+            >
+
+                <i class="bi bi-stars me-2"></i>
+
+                تفعيل لجنة الرأفة
+
+            </button>
+
+            <div id="mercyReport" class="report-area">
+
+                <div class="report-placeholder">
+
+                    <i class="bi bi-clipboard-data"></i>
+
+                    <p>
+
+                        التقرير النهائي سيظهر هنا بعد تفعيل لجنة الرأفة.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+
+    <footer class="footer">
+
+        <p>
+
+            Made with care ♡ | A'laa
+
+        </p>
+
+    </footer>
+
+    <!-- Bootstrap JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
